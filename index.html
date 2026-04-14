@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <!-- SEO Meta -->
+  <title>Self Drive Car Rental in Bhopal | Gadi Pe Chalo</title>
+  <meta name="description" content="Book self-drive cars in Bhopal starting at ₹1999/day. Affordable, reliable & 24/7 support. Call now!">
+  <meta name="keywords" content="car rental in Bhopal, self drive car Bhopal, cheap car rental Bhopal, rent car near me">
+  <meta name="author" content="Gadi Pe Chalo">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gadi Pe Chalo – Premium Self-Drive Cars in Bhopal">
+  <meta property="og:description" content="Rent premium cars starting at ₹1999/day. No driver needed. 24/7 support.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./images/logo/og-image.jpg">
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family: 'Inter', sans-serif;
+      background: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container{
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Premium metallic & dark theme */
+    :root{
+      --black: #0a0a0a;
+      --dark-grey: #1a1c1e;
+      --metallic: #c9a86c;
+      --silver: #a0a5aa;
+      --card-bg: #151718;
+      --border-subtle: #2e3133;
+    }
+    h1,h2,h3{ font-weight: 700; line-height: 1.2; }
+    .text-gold{ color: var(--metallic); }
+    .bg-gold{ background: var(--metallic); }
+    .border-gold{ border-color: var(--metallic); }
+    
+    /* Logo styles */
+    .logo-image {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+    
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      color: white;
+    }
+    
+    /* Car image styles */
+    .car-image-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #1f2225, #111315);
+      border: 1px solid #35393e;
+      margin-bottom: 16px;
+    }
+    
+    .car-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .car-card:hover .car-image {
+      transform: scale(1.05);
+    }
+    
+    .car-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9da3aa;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    
+    /* Sticky header */
+    .sticky-header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #2a2c2e;
+    }
+    
+    .floating-wa{
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.05);
+      transition: transform 0.2s ease;
+    }
+    .floating-wa:hover{ transform: scale(1.05); }
+    .floating-wa svg{ width: 34px; height: 34px; fill: white; }
+    
+    /* CTA buttons */
+    .btn-primary{
+      background: var(--metallic);
+      color: #0a0a0a;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      border: none;
+      box-shadow: 0 6px 14px rgba(201,168,108,0.2);
+      text-decoration: none;
+    }
+    .btn-primary:hover{
+      background: #dbb87c;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(201,168,108,0.3);
+    }
+    .btn-outline-light{
+      background: transparent;
+      border: 1.5px solid var(--silver);
+      color: #f0f0f0;
+      padding: 12px 22px;
+      border-radius: 60px;
+      font-weight: 600;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-outline-light:hover{
+      background: #2a2e31;
+      border-color: var(--metallic);
+      color: var(--metallic);
+    }
+    
+    /* Car cards */
+    .car-card{
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 20px 16px 24px;
+      border: 1px solid #2c2f32;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 15px 25px -8px rgba(0,0,0,0.6);
+    }
+    .car-card:hover{
+      border-color: var(--metallic);
+      transform: translateY(-6px);
+      box-shadow: 0 28px 30px -12px #00000080, 0 0 0 1px rgba(201,168,108,0.3);
+    }
+    
+    /* Hero gradient */
+    .hero-section{
+      background: radial-gradient(circle at 80% 30%, #1e2124, #0b0b0b);
+    }
+    
+    /* Trust badge */
+    .badge-trust{
+      background: #1f2326;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ccc;
+      border: 1px solid #3a3f44;
+    }
+    
+    /* Instagram placeholder */
+    .insta-preview{
+      background: #131517;
+      border-radius: 32px;
+      padding: 24px 20px;
+      border: 1px solid #2f3338;
+    }
+    
+    input, button{ font-family: inherit; }
+    .form-input{
+      background: #1e2023;
+      border: 1px solid #3a3f45;
+      border-radius: 50px;
+      padding: 14px 20px;
+      color: white;
+      width: 100%;
+      outline: none;
+      transition: 0.15s;
+    }
+    .form-input:focus{ border-color: var(--metallic); box-shadow: 0 0 0 2px rgba(201,168,108,0.3); }
+    
+    /* Animations */
+    @keyframes fadeUp{
+      0%{ opacity: 0; transform: translateY(12px); }
+      100%{ opacity: 1; transform: translateY(0); }
+    }
+    .animate-in{ animation: fadeUp 0.6s ease forwards; }
+    .delay-1{ animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+    .delay-2{ animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+    
+    /* Hero logo */
+    .hero-logo {
+      max-width: 300px;
+      height: auto;
+      margin: 0 auto;
+    }
+    
+    /* Mobile adjustments */
+    @media (max-width: 640px){
+      .container{ padding: 0 16px; }
+      h1{ font-size: 2.2rem; }
+      .logo-image { height: 35px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- STICKY HEADER with Logo & CTA -->
+<header class="sticky-header">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding-top: 12px; padding-bottom: 12px;">
+    <!-- Logo area - Update with your logo file -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="background: linear-gradient(145deg, #2c2f33, #1a1c1e); padding: 6px 12px 6px 18px; border-radius: 60px; border-left: 4px solid var(--metallic); display: flex; align-items: center; gap: 8px;">
+        <!-- Logo Image - Replace with your actual logo file -->
+        <img src="./images/logo/logo.png" alt="Gadi Pe Chalo Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span class="logo-text" style="display: none;">GADI<span style="color: var(--metallic);">PE</span>CHALO</span>
+      </div>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <a href="tel:+918849799499" class="btn-outline-light" style="padding: 8px 16px; font-size: 0.9rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call
+      </a>
+      <a href="https://wa.me/918849799499?text=Hello%20Gadi%20Pe%20Chalo%2C%20I%20want%20to%20book%20a%20car" class="btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.549 4.174 1.588 5.952L.057 24l6.236-1.646A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.235c-2.03 0-3.96-.548-5.62-1.508l-.396-.234-3.7.976.988-3.596-.255-.408A9.957 9.957 0 0 1 2.165 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.535-7.48c-.295-.148-1.75-.864-2.022-.962-.272-.1-.47-.148-.667.148-.197.296-.767.962-.94 1.16-.174.197-.347.222-.642.074-.295-.148-1.246-.46-2.375-1.468-.88-.785-1.473-1.755-1.646-2.052-.173-.297-.018-.457.13-.605.133-.133.296-.347.444-.52.148-.174.197-.297.296-.495.1-.198.05-.37-.025-.52-.074-.148-.667-1.608-.914-2.202-.24-.575-.485-.497-.667-.506-.17-.008-.37-.01-.567-.01-.198 0-.52.074-.79.37-.272.297-1.038 1.015-1.038 2.474 0 1.46 1.062 2.87 1.21 3.068.148.198 2.09 3.19 5.06 4.472.706.305 1.257.487 1.686.624.708.225 1.353.193 1.862.117.568-.085 1.75-.715 1.996-1.406.247-.69.247-1.283.173-1.406-.074-.123-.272-.198-.567-.346z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="hero-section" style="padding: 40px 0 60px;">
+    <div class="container">
+      <div class="animate-in" style="display: flex; flex-direction: column; gap: 24px;">
+        <!-- Hero Logo - Replace with your actual logo file -->
+        <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+          <div style="background: #111214; padding: 20px 40px; border-radius: 80px; border: 1px solid #3e4146; box-shadow: 0 10px 18px -6px black;">
+            <img src="./images/logo/logo-large.png" alt="Gadi Pe Chalo" class="hero-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span style="display: none; font-weight: 800; font-size: 2.4rem; letter-spacing: -1px; background: linear-gradient(135deg,#ffffff,#c9a86c); -webkit-background-clip: text; background-clip: text; color: transparent;">GADI PE CHALO</span>
+          </div>
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 8vw, 4rem); font-weight: 800; text-align: center; max-width: 900px; margin: 0 auto;">
+          Rent Premium Cars in Bhopal at Just <span style="color: var(--metallic);">₹1999/day</span>
+        </h1>
+        <p style="font-size: 1.2rem; text-align: center; color: #b0b8c0; max-width: 600px; margin: 0 auto;">
+          Self-drive cars • Easy booking • No hidden charges
+        </p>
+        <!-- Trust badges -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+          <span class="badge-trust">⭐ 24/7 Support</span>
+          <span class="badge-trust">✅ Verified Service</span>
+          <span class="badge-trust">💰 Best Price Guarantee</span>
+        </div>
+        <!-- Hero CTAs -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 16px;">
+          <a href="tel:+918849799499" class="btn-primary" style="padding: 18px 36px; font-size: 1.2rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now
+          </a>
+          <a href="https://wa.me/918849799499?text=Hello%2C%20I%20want%20to%20book%20a%20self-drive%20car" class="btn-outline-light" style="padding: 18px 36px; font-size: 1.2rem; border-width: 2px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.549 4.174 1.588 5.952L.057 24l6.236-1.646A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.235c-2.03 0-3.96-.548-5.62-1.508l-.396-.234-3.7.976.988-3.596-.255-.408A9.957 9.957 0 0 1 2.165 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.535-7.48c-.295-.148-1.75-.864-2.022-.962-.272-.1-.47-.148-.667.148-.197.296-.767.962-.94 1.16-.174.197-.347.222-.642.074-.295-.148-1.246-.46-2.375-1.468-.88-.785-1.473-1.755-1.646-2.052-.173-.297-.018-.457.13-.605.133-.133.296-.347.444-.52.148-.174.197-.297.296-.495.1-.198.05-.37-.025-.52-.074-.148-.667-1.608-.914-2.202-.24-.575-.485-.497-.667-.506-.17-.008-.37-.01-.567-.01-.198 0-.52.074-.79.37-.272.297-1.038 1.015-1.038 2.474 0 1.46 1.062 2.87 1.21 3.068.148.198 2.09 3.19 5.06 4.472.706.305 1.257.487 1.686.624.708.225 1.353.193 1.862.117.568-.085 1.75-.715 1.996-1.406.247-.69.247-1.283.173-1.406-.074-.123-.272-.198-.567-.346z"/></svg>
+            WhatsApp Now
+          </a>
+        </div>
+        <!-- location snippet -->
+        <p style="text-align: center; color: #9aa1a9; margin-top: 12px;">
+          📍 Pebble Bay Phase-2 near Bhawani Mata Mandir, Bagmugaliya, Bhopal
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section style="padding: 60px 0 30px;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; margin-bottom: 16px; text-align: center;">Self Drive Car Rentals in <span class="text-gold">Bhopal</span></h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px 50px; margin-top: 32px;">
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="background: #25292e; padding: 10px; border-radius: 50%;">🚫</span> No driver needed</div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="background: #25292e; padding: 10px; border-radius: 50%;">📅</span> Flexible rental plans</div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="background: #25292e; padding: 10px; border-radius: 50%;">💰</span> Affordable pricing</div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="background: #25292e; padding: 10px; border-radius: 50%;">📱</span> Easy booking process</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABLE CARS (with proper image structure) -->
+  <section style="padding: 40px 0 60px;">
+    <div class="container">
+      <h2 style="font-size: 2.2rem; margin-bottom: 32px;">🚘 Our Premium Fleet</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+        
+        <!-- Car 1: Grand Vitara CNG -->
+        <div class="car-card animate-in delay-1">
+          <div class="car-image-container">
+            <img src="./images/cars/grand-vitara.jpg" alt="Grand Vitara CNG" class="car-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-image-placeholder" style="display: none;">🚙 Grand Vitara · CNG</div>
+          </div>
+          <h3 style="font-size: 1.6rem;">Grand Vitara</h3>
+          <p style="color: var(--metallic); font-weight: 600; margin: 6px 0;">CNG • ⭐ 4.9</p>
+          <p style="font-size: 1.8rem; font-weight: 800;">₹1999<span style="font-size: 1rem; font-weight: 400; color: #aaa;">/day*</span></p>
+          <div style="display: flex; gap: 8px; margin: 18px 0 8px;">
+            <a href="tel:+918849799499" class="btn-primary" style="flex:1; padding: 12px;">Book Now</a>
+            <a href="https://wa.me/918849799499?text=Interested%20in%20Grand%20Vitara%20CNG" class="btn-outline-light" style="flex:1;">WhatsApp</a>
+          </div>
+        </div>
+        
+        <!-- Car 2: Victoris CNG -->
+        <div class="car-card animate-in delay-1">
+          <div class="car-image-container">
+            <img src="./images/cars/victoris.jpg" alt="Victoris CNG" class="car-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-image-placeholder" style="display: none;">🚗 Victoris · CNG</div>
+          </div>
+          <h3 style="font-size: 1.6rem;">Victoris</h3>
+          <p style="color: var(--metallic); font-weight: 600;">CNG • ⭐ 4.8</p>
+          <p style="font-size: 1.8rem; font-weight: 800;">₹1999<span style="font-size: 1rem; color: #aaa;">/day*</span></p>
+          <div style="display: flex; gap: 8px; margin: 18px 0 8px;">
+            <a href="tel:+918849799499" class="btn-primary" style="flex:1;">Book Now</a>
+            <a href="https://wa.me/918849799499?text=Victoris%20CNG%20booking" class="btn-outline-light" style="flex:1;">WhatsApp</a>
+          </div>
+        </div>
+        
+        <!-- Car 3: Dzire Petrol -->
+        <div class="car-card animate-in delay-2">
+          <div class="car-image-container">
+            <img src="./images/cars/dzire.jpg" alt="Dzire Petrol" class="car-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-image-placeholder" style="display: none;">🚙 Dzire · Petrol</div>
+          </div>
+          <h3 style="font-size: 1.6rem;">Dzire</h3>
+          <p style="color: var(--metallic); font-weight: 600;">Petrol • ⭐ 4.7</p>
+          <p style="font-size: 1.8rem; font-weight: 800;">₹1999<span style="font-size: 1rem; color: #aaa;">/day*</span></p>
+          <div style="display: flex; gap: 8px; margin: 18px 0 8px;">
+            <a href="tel:+918849799499" class="btn-primary" style="flex:1;">Book Now</a>
+            <a href="https://wa.me/918849799499?text=Dzire%20Petrol%20booking" class="btn-outline-light" style="flex:1;">WhatsApp</a>
+          </div>
+        </div>
+        
+        <!-- Car 4: Baleno Petrol -->
+        <div class="car-card animate-in delay-2">
+          <div class="car-image-container">
+            <img src="./images/cars/baleno.jpg" alt="Baleno Petrol" class="car-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-image-placeholder" style="display: none;">🚗 Baleno · Petrol</div>
+          </div>
+          <h3 style="font-size: 1.6rem;">Baleno</h3>
+          <p style="color: var(--metallic); font-weight: 600;">Petrol • ⭐ 4.8</p>
+          <p style="font-size: 1.8rem; font-weight: 800;">₹1999<span style="font-size: 1rem; color: #aaa;">/day*</span></p>
+          <div style="display: flex; gap: 8px; margin: 18px 0 8px;">
+            <a href="tel:+918849799499" class="btn-primary" style="flex:1;">Book Now</a>
+            <a href="https://wa.me/918849799499?text=Baleno%20booking" class="btn-outline-light" style="flex:1;">WhatsApp</a>
+          </div>
+        </div>
+        
+        <!-- Car 5: Scorpio N -->
+        <div class="car-card">
+          <div class="car-image-container">
+            <img src="./images/cars/scorpio-n.jpg" alt="Scorpio N" class="car-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-image-placeholder" style="display: none;">🔥 Scorpio N · Diesel</div>
+          </div>
+          <h3 style="font-size: 1.6rem;">Scorpio N</h3>
+          <p style="color: var(--metallic); font-weight: 600;">Diesel • ⭐ 5.0</p>
+          <p style="font-size: 1.8rem; font-weight: 800;">₹2499<span style="font-size: 1rem; color: #aaa;">/day*</span></p>
+          <div style="display: flex; gap: 8px; margin: 18px 0 8px;">
+            <a href="tel:+918849799499" class="btn-primary" style="flex:1;">Book Now</a>
+            <a href="https://wa.me/918849799499?text=Scorpio%20N%20booking" class="btn-outline-light" style="flex:1;">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top: 24px; color: #aaa; font-size: 0.9rem;">*Starting price, taxes extra. Limited period offer.</p>
+    </div>
+  </section>
+
+  <!-- Rest of the sections remain same -->
+  <!-- WHY CHOOSE US / FEATURES -->
+  <section style="background: #0f1114; padding: 60px 0;">
+    <div class="container">
+      <h2 style="font-size: 2.2rem; text-align: center; margin-bottom: 48px;">✨ Why Choose <span class="text-gold">Gadi Pe Chalo</span></h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px;">
+        <div style="text-align: center; padding: 20px; background: #181b1f; border-radius: 28px;">💰 Affordable Pricing</div>
+        <div style="text-align: center; padding: 20px; background: #181b1f; border-radius: 28px;">⚡ Instant Booking</div>
+        <div style="text-align: center; padding: 20px; background: #181b1f; border-radius: 28px;">🧼 Clean & Sanitized Cars</div>
+        <div style="text-align: center; padding: 20px; background: #181b1f; border-radius: 28px;">⏳ Flexible Rental Duration</div>
+        <div style="text-align: center; padding: 20px; background: #181b1f; border-radius: 28px;">📞 24/7 Customer Support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF: Instagram + Testimonials -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
+        <div class="insta-preview">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+            <span style="font-size: 2rem;">📸</span>
+            <h3 style="font-size: 1.6rem;">@gadipechalo</h3>
+          </div>
+          <div style="background: #202428; border-radius: 20px; padding: 30px 20px; text-align: center; border: 1px dashed #4a5058;">
+            <p style="margin-bottom: 16px;">Follow us for latest fleet & offers</p>
+            <a href="https://www.instagram.com/gadipechalo/" target="_blank" class="btn-outline-light" style="margin: 0 auto;">View Instagram →</a>
+            <div style="display: flex; gap: 12px; margin-top: 24px; justify-content: center;">
+              <div style="width: 70px; height: 70px; background: #2f353b; border-radius: 16px;"></div>
+              <div style="width: 70px; height: 70px; background: #2f353b; border-radius: 16px;"></div>
+              <div style="width: 70px; height: 70px; background: #2f353b; border-radius: 16px;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="background: #131619; border-radius: 32px; padding: 28px; border: 1px solid #2f353b;">
+          <h3 style="font-size: 1.8rem; margin-bottom: 20px;">⭐ What Riders Say</h3>
+          <div style="margin-bottom: 24px;">
+            <p style="font-style: italic;">"Super smooth experience. Car was clean and pickup was easy. Definitely coming back!"</p>
+            <p style="color: var(--metallic); margin-top: 8px;">— Rohan S.</p>
+          </div>
+          <div>
+            <p style="font-style: italic;">"Best self-drive rates in Bhopal. Scorpio N was a beast. 24/7 support is real."</p>
+            <p style="color: var(--metallic); margin-top: 8px;">— Priya M.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMPLE BOOKING FORM + FINAL CTA -->
+  <section style="padding: 40px 0 70px;">
+    <div class="container" style="max-width: 800px; margin:0 auto;">
+      <div style="background: linear-gradient(145deg, #191c20, #0d0f12); border-radius: 48px; padding: 40px 30px; border: 1px solid #3f454b; box-shadow: 0 30px 30px -10px black;">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 16px;">Book Your Ride Now!</h2>
+        <p style="text-align: center; margin-bottom: 28px;">Quick inquiry — we'll confirm via call/WhatsApp</p>
+        
+        <form onsubmit="event.preventDefault(); alert('Thanks! We will contact you shortly on WhatsApp/call.');" style="display: flex; flex-direction: column; gap: 18px;">
+          <input type="text" placeholder="Your Name" class="form-input" required>
+          <input type="tel" placeholder="Phone Number" class="form-input" required>
+          <input type="text" placeholder="Preferred Date (optional)" class="form-input">
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <button type="submit" class="btn-primary" style="flex:2;">Send Inquiry</button>
+            <a href="https://wa.me/918849799499?text=Hello%2C%20I%20want%20to%20book%20a%20car" class="btn-outline-light" style="flex:1; justify-content: center;">WhatsApp</a>
+          </div>
+        </form>
+        <p style="margin-top: 24px; text-align: center; font-size: 0.9rem;">Or call directly: <a href="tel:+918849799499" style="color: var(--metallic); font-weight: 700;">+91 88497 99499</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="border-top: 1px solid #262a2f; padding: 30px 0; color: #9aa1a9;">
+  <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <div><span style="font-weight: 700;">GADI PE CHALO</span> © 2026</div>
+    <div>📍 Pebble Bay Phase-2, Bagmugaliya, Bhopal</div>
+    <div>📞 24/7: +91 8849799499</div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/918849799499?text=Hi%20Gadi%20Pe%20Chalo%2C%20I%20need%20a%20self-drive%20car" class="floating-wa" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.164 0 16c0 2.808.732 5.567 2.124 7.936L.057 32l8.236-2.174A15.95 15.95 0 0 0 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.647c-2.707 0-5.28-.737-7.493-2.011l-.528-.312-4.933 1.301 1.317-4.795-.34-.544A13.27 13.27 0 0 1 2.887 16c0-7.352 5.981-13.333 13.333-13.333S29.553 8.648 29.553 16 23.572 29.333 16 29.333zm7.38-9.973c-.393-.197-2.333-1.152-2.696-1.283-.363-.133-.627-.197-.89.197-.262.395-1.023 1.283-1.254 1.547-.232.263-.463.296-.856.099-.393-.197-1.662-.613-3.167-1.957-1.173-1.047-1.964-2.34-2.195-2.736-.23-.396-.024-.61.173-.807.177-.177.395-.463.592-.693.197-.232.263-.396.395-.66.132-.264.066-.494-.033-.693-.099-.197-.89-2.144-1.22-2.936-.32-.767-.647-.663-.89-.675-.227-.01-.493-.013-.756-.013-.264 0-.693.099-1.055.493-.363.396-1.384 1.353-1.384 3.298 0 1.947 1.416 3.827 1.613 4.09.197.264 2.787 4.253 6.747 5.962.941.407 1.676.65 2.248.832.944.3 1.804.257 2.483.156.757-.113 2.333-.953 2.662-1.875.33-.92.33-1.71.231-1.875-.099-.164-.363-.263-.756-.46z"/></svg>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CarRental",
+  "name": "Gadi Pe Chalo",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Pebble Bay Phase-2 near Bhawani Mata Mandir, Bagmugaliya",
+    "addressLocality": "Bhopal",
+    "addressRegion": "MP",
+    "postalCode": "462043"
+  },
+  "telephone": "+918849799499",
+  "priceRange": "₹1999 - ₹4999"
+}
+</script>
+
+</body>
+</html>
