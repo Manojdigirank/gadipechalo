@@ -4,20 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
   
-  <!-- SEO Meta -->
+  <!-- SEO Meta Tags -->
   <title>Self Drive Cars in Bhopal at Best Price | Gadi Pe Chalo</title>
-  <meta name="description" content="Rent self drive & driver-based cars in Bhopal. Hatchback, SUV, Luxury starting ₹1499/day. 24/7 support, sanitized cars. Book now!">
-  <meta name="keywords" content="car rental Bhopal, self drive cars Bhopal, rent a car Bhopal, outstation cabs Bhopal, airport transfer Bhopal, corporate car rental Bhopal, luxury car rental Bhopal, SUV rental Bhopal">
+  <meta name="description" content="Rent self drive & chauffeur driven cars in Bhopal. Hatchback, SUV, Luxury starting ₹1499/day. 24/7 support, sanitized cars. Book now!">
+  <meta name="keywords" content="car rental Bhopal, self drive cars Bhopal, rent a car Bhopal, outstation cabs Bhopal, airport transfer Bhopal, corporate car rental Bhopal, luxury car rental Bhopal, SUV rental Bhopal, Baleno rental, Dzire rental, Grand Vitara rental, Scorpio N rental">
   <meta name="author" content="Gadi Pe Chalo">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
   <meta property="og:title" content="Gadi Pe Chalo – Premium Car Rental Bhopal">
   <meta property="og:description" content="Self drive & chauffeur driven cars in Bhopal. Best price, clean cars, 24/7 support.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1000">
+  <meta property="og:image" content="Logo.jpg">
   <meta property="og:type" content="website">
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
@@ -33,10 +36,11 @@
       color: #f0f0f0;
       line-height: 1.5;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     :root {
-      --primary: #FFB800;      /* energetic yellow-orange */
+      --primary: #FFB800;
       --primary-dark: #E09E00;
       --black: #0B0B0B;
       --dark-card: #151719;
@@ -56,7 +60,6 @@
     }
 
     .text-primary { color: var(--primary); }
-    .bg-primary { background: var(--primary); color: #0a0a0a; }
 
     /* Buttons */
     .btn-primary {
@@ -101,34 +104,58 @@
       color: var(--primary);
     }
 
-    /* Sticky header */
+    /* Header */
     .sticky-header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(10,10,10,0.85);
+      background: rgba(10, 10, 10, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #222;
     }
 
-    /* Hero */
+    /* Logo */
+    .logo-img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .logo-img {
+        height: 38px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-img {
+        height: 32px;
+      }
+    }
+
+    /* Hero Section */
     .hero-section {
-      background: radial-gradient(circle at 80% 20%, #1e2226, #050505);
+      background: linear-gradient(135deg, #0f1114 0%, #1a1e23 100%);
       position: relative;
       overflow: hidden;
     }
 
-    .hero-bg-overlay {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1200') center/cover;
-      opacity: 0.25;
+      opacity: 0.3;
       z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* Quick Search Form */
     .search-card {
-      background: rgba(20, 22, 25, 0.9);
+      background: rgba(20, 22, 25, 0.95);
       backdrop-filter: blur(10px);
       border-radius: 32px;
       padding: 28px 24px;
@@ -163,13 +190,16 @@
       border-color: var(--primary);
     }
 
-    /* Fleet cards */
+    /* Fleet Cards */
     .car-card {
       background: var(--dark-card);
       border-radius: 24px;
       padding: 20px 16px 24px;
       border: 1px solid #2a2e33;
       transition: all 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .car-card:hover {
@@ -178,13 +208,37 @@
       box-shadow: 0 20px 30px -10px #000;
     }
 
-    .car-img {
+    .car-img-container {
+      position: relative;
       width: 100%;
-      height: 180px;
-      object-fit: cover;
+      aspect-ratio: 16 / 10;
       border-radius: 18px;
+      overflow: hidden;
       background: #1e2126;
       margin-bottom: 16px;
+    }
+
+    .car-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .car-card:hover .car-img {
+      transform: scale(1.05);
+    }
+
+    .car-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #1f2328, #15171a);
+      color: #9aa1a9;
+      font-weight: 500;
+      font-size: 1.1rem;
     }
 
     /* USPs */
@@ -201,7 +255,7 @@
       margin-bottom: 16px;
     }
 
-    /* floating WA */
+    /* Floating WhatsApp */
     .floating-wa {
       position: fixed;
       bottom: 24px;
@@ -213,14 +267,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
       z-index: 100;
       transition: 0.2s;
+      text-decoration: none;
     }
 
-    .floating-wa:hover { transform: scale(1.08); }
+    .floating-wa:hover {
+      transform: scale(1.08);
+    }
 
-    /* urgency badge */
+    /* Urgency Badge */
     .urgent-badge {
       background: #ff3b30;
       color: white;
@@ -229,12 +286,127 @@
       border-radius: 40px;
       font-size: 0.8rem;
       display: inline-block;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Testimonial Stars */
+    .stars {
+      color: #FFB800;
+      letter-spacing: 2px;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .container { padding: 0 18px; }
-      .btn-primary { padding: 12px 20px; }
+      .container {
+        padding: 0 18px;
+      }
+      
+      .btn-primary {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+      
+      .btn-outline {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem !important;
+      }
+      
+      h2 {
+        font-size: 1.8rem !important;
+      }
+      
+      .search-card {
+        padding: 20px 16px;
+      }
+      
+      .car-img-container {
+        aspect-ratio: 16 / 10;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 14px;
+      }
+      
+      h1 {
+        font-size: 1.8rem !important;
+      }
+      
+      h2 {
+        font-size: 1.5rem !important;
+      }
+      
+      .btn-primary, .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .sticky-header .container {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .sticky-header .btn-primary,
+      .sticky-header .btn-outline {
+        width: auto;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+      }
+      
+      .logo-img {
+        height: 30px;
+      }
+    }
+
+    /* Scroll animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer Map */
+    .map-container {
+      background: #1a1e22;
+      padding: 12px;
+      border-radius: 16px;
+      margin-top: 16px;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 120px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    /* Sticky mobile book button */
+    #stickyBookMobile {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 90;
+      display: none;
+    }
+    
+    #stickyBookMobile .btn-primary {
+      box-shadow: 0 10px 25px black;
+      padding: 14px 24px;
     }
   </style>
 </head>
@@ -244,13 +416,15 @@
 <header class="sticky-header">
   <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0;">
     <div style="display: flex; align-items: center; gap: 12px;">
-      <div style="font-weight: 800; font-size: 1.7rem; letter-spacing: -1px;">
+      <!-- Logo Image -->
+      <img src="Logo.jpg" alt="Gadi Pe Chalo Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span style="display: none; font-weight: 800; font-size: 1.5rem;">
         <span style="color: white;">GADI</span><span style="color: var(--primary);">PE</span><span style="color: white;">CHALO</span>
-      </div>
+      </span>
     </div>
     <div style="display: flex; gap: 8px;">
-      <a href="tel:+918849799499" class="btn-outline"><i class="fas fa-phone-alt"></i> Call</a>
-      <a href="#booking" class="btn-primary" style="padding: 12px 20px;"><i class="fas fa-car"></i> Book Now</a>
+      <a href="tel:+918849799499" class="btn-outline"><i class="fas fa-phone-alt"></i> <span class="hide-mobile">Call</span></a>
+      <a href="#booking" class="btn-primary"><i class="fas fa-car"></i> <span class="hide-mobile">Book Now</span></a>
     </div>
   </div>
 </header>
@@ -258,7 +432,9 @@
 <main>
   <!-- 1️⃣ HERO SECTION -->
   <section class="hero-section" style="padding: 50px 0 60px; position: relative;">
-    <div class="hero-bg-overlay"></div>
+    <div class="hero-bg">
+      <img src="baner.jpg" alt="Car Rental Banner" onerror="this.style.display='none'">
+    </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div style="display: flex; flex-direction: column; gap: 30px; max-width: 800px;">
         <div>
@@ -284,7 +460,7 @@
     </div>
   </section>
 
-  <!-- 2️⃣ QUICK SEARCH / BOOKING FORM (with ID) -->
+  <!-- 2️⃣ QUICK SEARCH / BOOKING FORM -->
   <section id="booking" style="margin-top: -40px; position: relative; z-index: 5; padding-bottom: 40px;">
     <div class="container">
       <div class="search-card">
@@ -317,7 +493,7 @@
             </select>
           </div>
         </div>
-        <div style="margin-top: 24px; display: flex; gap: 12px; align-items: center;">
+        <div style="margin-top: 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
           <a href="#" class="btn-primary" style="padding: 16px 32px;"><i class="fas fa-check-circle"></i> Check Availability</a>
           <span style="color: #aaa;"><i class="fas fa-bolt"></i> Instant confirmation</span>
         </div>
@@ -328,11 +504,11 @@
   <!-- 3️⃣ OUR FLEET SECTION -->
   <section id="fleet" style="padding: 50px 0;">
     <div class="container">
-      <h2 style="font-size: 2.5rem; margin-bottom: 16px;">🚘 Our Premium Fleet</h2>
-      <p style="margin-bottom: 32px; color: #bbb;">Well maintained, sanitized, and ready to drive.</p>
+      <h2 class="fade-up" style="font-size: 2.5rem; margin-bottom: 16px;">🚘 Our Premium Fleet</h2>
+      <p class="fade-up" style="margin-bottom: 32px; color: #bbb;">Well maintained, sanitized, and ready to drive.</p>
       
-      <!-- Category tabs (visual) -->
-      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;">
+      <!-- Category tabs -->
+      <div class="fade-up" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;">
         <span style="background: var(--primary); color: black; padding: 8px 20px; border-radius: 40px; font-weight: 600;">All</span>
         <span style="background: #1f2328; padding: 8px 20px; border-radius: 40px;">Hatchback</span>
         <span style="background: #1f2328; padding: 8px 20px; border-radius: 40px;">Sedan</span>
@@ -341,53 +517,81 @@
       </div>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px;">
-        <!-- Hatchback -->
-        <div class="car-card">
-          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=600" alt="Hatchback" class="car-img">
-          <h3>Hyundai i20 / Baleno</h3>
+        
+        <!-- Baleno -->
+        <div class="car-card fade-up">
+          <div class="car-img-container">
+            <img src="Baleno.jpg" alt="Baleno Self Drive Bhopal" class="car-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-img-placeholder" style="display: none;">🚗 Baleno · Petrol</div>
+          </div>
+          <h3>Maruti Baleno</h3>
           <p style="color: var(--primary); font-weight: 700; margin: 6px 0;">₹1499/day*</p>
-          <p><i class="fas fa-gas-pump"></i> Petrol · 5 seats · AC</p>
-          <a href="#" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
+          <p><i class="fas fa-gas-pump"></i> Petrol · 5 seats · AC · Music</p>
+          <a href="tel:+918849799499" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
         </div>
-        <!-- Sedan -->
-        <div class="car-card">
-          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=600" alt="Sedan" class="car-img">
-          <h3>Honda City / Dzire</h3>
+        
+        <!-- Dzire -->
+        <div class="car-card fade-up">
+          <div class="car-img-container">
+            <img src="Dzire.jpg" alt="Dzire Self Drive Bhopal" class="car-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-img-placeholder" style="display: none;">🚙 Dzire · Petrol/CNG</div>
+          </div>
+          <h3>Maruti Dzire</h3>
+          <p style="color: var(--primary); font-weight: 700;">₹1699/day*</p>
+          <p><i class="fas fa-gas-pump"></i> Petrol/CNG · 5 seats · AC</p>
+          <a href="tel:+918849799499" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
+        </div>
+        
+        <!-- Grand Vitara CNG -->
+        <div class="car-card fade-up">
+          <div class="car-img-container">
+            <img src="Grand Vitara CNG.jpg" alt="Grand Vitara CNG Rental Bhopal" class="car-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-img-placeholder" style="display: none;">🚙 Grand Vitara · CNG</div>
+          </div>
+          <h3>Grand Vitara CNG</h3>
+          <p style="color: var(--primary); font-weight: 700;">₹1999/day*</p>
+          <p><i class="fas fa-leaf"></i> CNG · 5 seats · Premium SUV</p>
+          <a href="tel:+918849799499" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
+        </div>
+        
+        <!-- Victoris -->
+        <div class="car-card fade-up">
+          <div class="car-img-container">
+            <img src="Victoris.jpg" alt="Victoris Car Rental Bhopal" class="car-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-img-placeholder" style="display: none;">🚗 Victoris · CNG</div>
+          </div>
+          <h3>Victoris CNG</h3>
           <p style="color: var(--primary); font-weight: 700;">₹1899/day*</p>
-          <p><i class="fas fa-gas-pump"></i> Petrol/CNG · 5 seats</p>
-          <a href="#" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
+          <p><i class="fas fa-leaf"></i> CNG · 5 seats · Spacious</p>
+          <a href="tel:+918849799499" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
         </div>
-        <!-- SUV -->
-        <div class="car-card">
-          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=600" alt="SUV" class="car-img">
-          <h3>Scorpio N / Creta</h3>
+        
+        <!-- Scorpio N -->
+        <div class="car-card fade-up">
+          <div class="car-img-container">
+            <img src="Scorpio N.jpg" alt="Scorpio N Rental Bhopal" class="car-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="car-img-placeholder" style="display: none;">🔥 Scorpio N · Diesel</div>
+          </div>
+          <h3>Scorpio N</h3>
           <p style="color: var(--primary); font-weight: 700;">₹2499/day*</p>
           <p><i class="fas fa-gas-pump"></i> Diesel · 7 seats · 4x4</p>
-          <a href="#" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
-        </div>
-        <!-- Luxury -->
-        <div class="car-card">
-          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=600" alt="Luxury" class="car-img">
-          <h3>BMW / Mercedes</h3>
-          <p style="color: var(--primary); font-weight: 700;">₹4999/day*</p>
-          <p><i class="fas fa-crown"></i> Premium · leather · sunroof</p>
-          <a href="#" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
+          <a href="tel:+918849799499" class="btn-primary" style="margin-top: 16px; width: 100%;">Book Now →</a>
         </div>
       </div>
-      <p style="margin-top: 20px;">*Fuel & taxes extra. Limited period offer.</p>
+      <p style="margin-top: 20px; color: #aaa;">*Fuel & taxes extra. Security deposit refundable. Limited period offer.</p>
     </div>
   </section>
 
   <!-- 4️⃣ WHY CHOOSE US -->
   <section style="background: #0f1114; padding: 60px 0;">
     <div class="container">
-      <h2 style="font-size: 2.3rem; text-align: center; margin-bottom: 48px;">✨ Why <span class="text-primary">Gadi Pe Chalo</span> ?</h2>
+      <h2 class="fade-up" style="font-size: 2.3rem; text-align: center; margin-bottom: 48px;">✨ Why <span class="text-primary">Gadi Pe Chalo</span> ?</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 30px;">
-        <div><div class="usp-icon"><i class="fas fa-tag"></i></div><h3>Transparent Pricing</h3><p>No hidden fees, what you see is what you pay.</p></div>
-        <div><div class="usp-icon"><i class="fas fa-headset"></i></div><h3>24/7 Support</h3><p>Roadside assistance & instant help.</p></div>
-        <div><div class="usp-icon"><i class="fas fa-pump-medical"></i></div><h3>Sanitized Cars</h3><p>Deep cleaned before every trip.</p></div>
-        <div><div class="usp-icon"><i class="fas fa-mobile-alt"></i></div><h3>Easy Booking</h3><p>Book in 60 seconds. Instant confirmation.</p></div>
-        <div><div class="usp-icon"><i class="fas fa-calendar-week"></i></div><h3>Flexible Plans</h3><p>Hourly, daily, weekly – your choice.</p></div>
+        <div class="fade-up"><div class="usp-icon"><i class="fas fa-tag"></i></div><h3>Transparent Pricing</h3><p>No hidden fees, what you see is what you pay.</p></div>
+        <div class="fade-up"><div class="usp-icon"><i class="fas fa-headset"></i></div><h3>24/7 Support</h3><p>Roadside assistance & instant help.</p></div>
+        <div class="fade-up"><div class="usp-icon"><i class="fas fa-pump-medical"></i></div><h3>Sanitized Cars</h3><p>Deep cleaned before every trip.</p></div>
+        <div class="fade-up"><div class="usp-icon"><i class="fas fa-mobile-alt"></i></div><h3>Easy Booking</h3><p>Book in 60 seconds. Instant confirmation.</p></div>
+        <div class="fade-up"><div class="usp-icon"><i class="fas fa-calendar-week"></i></div><h3>Flexible Plans</h3><p>Hourly, daily, weekly – your choice.</p></div>
       </div>
     </div>
   </section>
@@ -395,11 +599,20 @@
   <!-- 5️⃣ HOW IT WORKS -->
   <section style="padding: 60px 0;">
     <div class="container">
-      <h2 style="text-align: center; font-size: 2.2rem;">🚀 How It Works</h2>
+      <h2 class="fade-up" style="text-align: center; font-size: 2.2rem;">🚀 How It Works</h2>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
-        <div style="text-align: center; max-width: 200px;"><span style="background: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; color: black;">1</span><h3>Select Car</h3><p>Browse & pick your perfect ride.</p></div>
-        <div style="text-align: center; max-width: 200px;"><span style="background: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; color: black;">2</span><h3>Book Online</h3><p>Quick payment & verification.</p></div>
-        <div style="text-align: center; max-width: 200px;"><span style="background: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; color: black;">3</span><h3>Drive & Enjoy</h3><p>Hit the road with confidence.</p></div>
+        <div class="fade-up" style="text-align: center; max-width: 200px;">
+          <span style="background: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; color: black;">1</span>
+          <h3>Select Car</h3><p>Browse & pick your perfect ride.</p>
+        </div>
+        <div class="fade-up" style="text-align: center; max-width: 200px;">
+          <span style="background: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; color: black;">2</span>
+          <h3>Book Online</h3><p>Quick payment & verification.</p>
+        </div>
+        <div class="fade-up" style="text-align: center; max-width: 200px;">
+          <span style="background: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; color: black;">3</span>
+          <h3>Drive & Enjoy</h3><p>Hit the road with confidence.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -407,13 +620,13 @@
   <!-- 6️⃣ SERVICES SECTION -->
   <section style="background: #0c0e10; padding: 60px 0;">
     <div class="container">
-      <h2 style="font-size: 2.3rem; margin-bottom: 30px;">🛞 Our Services</h2>
+      <h2 class="fade-up" style="font-size: 2.3rem; margin-bottom: 30px;">🛞 Our Services</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px;">
-        <div class="car-card" style="text-align: center;"><i class="fas fa-user" style="font-size: 30px; color: var(--primary);"></i><h3>Self Drive</h3><p>Freedom & privacy</p></div>
-        <div class="car-card" style="text-align: center;"><i class="fas fa-mountain"></i><h3>Outstation</h3><p>Round trips</p></div>
-        <div class="car-card" style="text-align: center;"><i class="fas fa-plane"></i><h3>Airport Transfer</h3><p>Pick & drop</p></div>
-        <div class="car-card" style="text-align: center;"><i class="fas fa-briefcase"></i><h3>Corporate</h3><p>Bulk bookings</p></div>
-        <div class="car-card" style="text-align: center;"><i class="fas fa-umbrella-beach"></i><h3>Weekend Trips</h3><p>Special packages</p></div>
+        <div class="car-card fade-up" style="text-align: center;"><i class="fas fa-user" style="font-size: 30px; color: var(--primary);"></i><h3>Self Drive</h3><p>Freedom & privacy</p></div>
+        <div class="car-card fade-up" style="text-align: center;"><i class="fas fa-mountain"></i><h3>Outstation</h3><p>Round trips</p></div>
+        <div class="car-card fade-up" style="text-align: center;"><i class="fas fa-plane"></i><h3>Airport Transfer</h3><p>Pick & drop</p></div>
+        <div class="car-card fade-up" style="text-align: center;"><i class="fas fa-briefcase"></i><h3>Corporate</h3><p>Bulk bookings</p></div>
+        <div class="car-card fade-up" style="text-align: center;"><i class="fas fa-umbrella-beach"></i><h3>Weekend Trips</h3><p>Special packages</p></div>
       </div>
     </div>
   </section>
@@ -421,22 +634,33 @@
   <!-- 7️⃣ TESTIMONIALS -->
   <section style="padding: 60px 0;">
     <div class="container">
-      <h2 style="font-size: 2.2rem;">❤️ Loved by 5000+ riders</h2>
+      <h2 class="fade-up" style="font-size: 2.2rem;">❤️ Loved by 5000+ riders</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 32px;">
-        <div style="background: #15181c; border-radius: 24px; padding: 24px;"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><p style="margin: 15px 0;">“Best self-drive experience in Bhopal. Car was spotless, staff very helpful.”</p><strong>Rohan Mehta</strong> · Bhopal</div>
-        <div style="background: #15181c; border-radius: 24px; padding: 24px;"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><p>“Scorpio N was amazing. Transparent pricing, no hidden nonsense.”</p><strong>Priya Sharma</strong> · Indore</div>
-        <div style="background: #15181c; border-radius: 24px; padding: 24px;"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star-half-alt"></i><p>“Easy booking, 24/7 support. My go-to rental in Bhopal.”</p><strong>Arjun Nair</strong> · Corporate client</div>
+        <div class="fade-up" style="background: #15181c; border-radius: 24px; padding: 24px;">
+          <div class="stars">★★★★★</div>
+          <p style="margin: 15px 0;">"Best self-drive experience in Bhopal. Car was spotless, staff very helpful."</p>
+          <strong>Rohan Mehta</strong> · Bhopal
+        </div>
+        <div class="fade-up" style="background: #15181c; border-radius: 24px; padding: 24px;">
+          <div class="stars">★★★★★</div>
+          <p>"Scorpio N was amazing. Transparent pricing, no hidden nonsense."</p>
+          <strong>Priya Sharma</strong> · Indore
+        </div>
+        <div class="fade-up" style="background: #15181c; border-radius: 24px; padding: 24px;">
+          <div class="stars">★★★★½</div>
+          <p>"Easy booking, 24/7 support. My go-to rental in Bhopal."</p>
+          <strong>Arjun Nair</strong> · Corporate client</div>
       </div>
     </div>
   </section>
 
-  <!-- 8️⃣ CTA SECTION (HIGH CONVERSION) -->
+  <!-- 8️⃣ CTA SECTION -->
   <section style="background: linear-gradient(145deg, #1f2328, #0f1114); padding: 60px 0; text-align: center; border-top: 2px solid var(--primary);">
     <div class="container">
-      <h2 style="font-size: 2.8rem;">Ready to Hit the Road?</h2>
-      <p style="font-size: 1.2rem; margin: 16px 0 28px;">Limited cars available – secure your ride now.</p>
-      <a href="tel:+918849799499" class="btn-primary" style="font-size: 1.3rem; padding: 18px 40px;"><i class="fas fa-car"></i> Book Your Car Now</a>
-      <p style="margin-top: 24px;"><i class="fas fa-phone-alt"></i> or call +91 88497 99499</p>
+      <h2 class="fade-up" style="font-size: clamp(2rem, 5vw, 2.8rem);">Ready to Hit the Road?</h2>
+      <p class="fade-up" style="font-size: 1.2rem; margin: 16px 0 28px;">Limited cars available – secure your ride now.</p>
+      <a href="tel:+918849799499" class="btn-primary fade-up" style="font-size: 1.3rem; padding: 18px 40px;"><i class="fas fa-car"></i> Book Your Car Now</a>
+      <p class="fade-up" style="margin-top: 24px;"><i class="fas fa-phone-alt"></i> or call +91 88497 99499</p>
     </div>
   </section>
 </main>
@@ -446,12 +670,14 @@
   <div class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px;">
       <div>
-        <h3 style="color: var(--primary);">GADI PE CHALO</h3>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+          <img src="Logo.jpg" alt="Gadi Pe Chalo" style="height: 40px; width: auto; object-fit: contain;" onerror="this.style.display='none'">
+        </div>
         <p>Self drive & chauffeur driven cars in Bhopal. Premium fleet, best price.</p>
         <div style="display: flex; gap: 16px; margin-top: 20px;">
           <a href="#" style="color: white;"><i class="fab fa-facebook fa-lg"></i></a>
           <a href="#" style="color: white;"><i class="fab fa-instagram fa-lg"></i></a>
-          <a href="#" style="color: white;"><i class="fab fa-whatsapp fa-lg"></i></a>
+          <a href="https://wa.me/918849799499" style="color: white;"><i class="fab fa-whatsapp fa-lg"></i></a>
         </div>
       </div>
       <div>
@@ -468,8 +694,8 @@
         <p style="margin-top: 12px;"><i class="fas fa-map-marker-alt"></i> Pebble Bay Phase-2, Bagmugaliya, Bhopal, MP 462043</p>
         <p><i class="fas fa-phone"></i> +91 88497 99499</p>
         <p><i class="fas fa-envelope"></i> book@gadipechalo.com</p>
-        <div style="background: #1a1e22; padding: 12px; border-radius: 16px; margin-top: 16px;">
-          <iframe title="map" width="100%" height="100" style="border:0; border-radius: 12px;" loading="lazy" src="https://maps.google.com/maps?q=Bhopal&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        <div class="map-container">
+          <iframe title="Gadi Pe Chalo Location" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Bhopal%20Madhya%20Pradesh&t=m&z=12&output=embed&iwloc=near"></iframe>
         </div>
       </div>
     </div>
@@ -482,36 +708,98 @@
   <i class="fab fa-whatsapp" style="font-size: 34px; color: white;"></i>
 </a>
 
-<!-- STICKY MOBILE BOOK BUTTON (for conversion) -->
-<div style="position: fixed; bottom: 20px; left: 20px; z-index: 90; display: none;" id="stickyBookMobile">
-  <a href="tel:+918849799499" class="btn-primary" style="box-shadow: 0 10px 25px black;"><i class="fas fa-phone"></i> Book</a>
+<!-- STICKY MOBILE BOOK BUTTON -->
+<div id="stickyBookMobile">
+  <a href="tel:+918849799499" class="btn-primary"><i class="fas fa-phone"></i> Book Now</a>
 </div>
 
-<script>
-  // schema markup injection
-  const script = document.createElement('script');
-  script.type = 'application/ld+json';
-  script.text = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "AutoRental",
-    "name": "Gadi Pe Chalo",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Pebble Bay Phase-2, Bagmugaliya",
-      "addressLocality": "Bhopal",
-      "addressRegion": "MP"
-    },
-    "telephone": "+918849799499",
-    "priceRange": "₹1499 - ₹4999",
-    "openingHours": "Mo-Su 00:00-23:59"
-  });
-  document.head.appendChild(script);
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRental",
+  "name": "Gadi Pe Chalo",
+  "image": "Logo.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Pebble Bay Phase-2, Bagmugaliya",
+    "addressLocality": "Bhopal",
+    "addressRegion": "MP",
+    "postalCode": "462043"
+  },
+  "telephone": "+918849799499",
+  "priceRange": "₹1499 - ₹4999",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "description": "Self drive and chauffeur driven car rental in Bhopal. Premium fleet at best prices."
+}
+</script>
 
-  // sticky mobile book show/hide
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -30px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Sticky mobile book button show/hide
   window.addEventListener('scroll', () => {
-    const sticky = document.getElementById('stickyBookMobile');
-    if (window.scrollY > 400) sticky.style.display = 'block';
-    else sticky.style.display = 'none';
+    const stickyBtn = document.getElementById('stickyBookMobile');
+    if (window.scrollY > 400) {
+      stickyBtn.style.display = 'block';
+    } else {
+      stickyBtn.style.display = 'none';
+    }
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Add lazy loading to images
+  document.querySelectorAll('img').forEach(img => {
+    if (!img.hasAttribute('loading')) {
+      img.setAttribute('loading', 'lazy');
+    }
+  });
+
+  // Handle image fallbacks
+  document.querySelectorAll('.car-img').forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.display = 'none';
+      if (this.nextElementSibling) {
+        this.nextElementSibling.style.display = 'flex';
+      }
+    });
+  });
+
+  // Logo fallback
+  const logoImages = document.querySelectorAll('.logo-img, [src="Logo.jpg"]');
+  logoImages.forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.display = 'none';
+      if (this.nextElementSibling) {
+        this.nextElementSibling.style.display = 'block';
+      }
+    });
   });
 </script>
 
